@@ -40,10 +40,11 @@ class RegistrationController extends Controller
 
     public function create(Serv_GenerateSlug $sLug, Registration $request)
     {
-        try {
+       try {
             
+            //avoid duplicate entry 
             $create = ModelRegistration::firstOrCreate([
-                'slug_id' => $sLug->registrationSlug(),
+                // 'slug_id' => $sLug->registrationSlug(),
                 'firstname' => $request->pangalan,
                 'lastname' => $request->apelyido,
                 'middlename' => $request->gpangalan,
@@ -54,16 +55,18 @@ class RegistrationController extends Controller
                 'barangay' => $request->barangay,
               ]);
 
-        
-            if($create) {
-                $refs = $create->slug_id;
-                $message = 'Successfully submitted, Please keep you ID-No. to update your credentials.<br><h3>ID-No. '.$refs.'</h3>';
+            $update = ModelRegistration::updateOrCreate(['reg_id' => $create->reg_id],['slug_id' => $sLug->registrationSlug(),]);
+
+            if($update) {
+
+                $message = 'Successfully submitted, Please keep you ID-No. to update your credentials.<br><h3>ID-No. '.$update->slug_id.'</h3>';
                 return redirect()->back()->with('success',$message);
         
             } else {
         
                 return redirect()->back()->with('errors','Please check reqired input.');
             }
+            
         } catch(\Exception $e) {
         
             return redirect()->route('register')->with('errors', "SomeThing wrong with your process. please try again.");
