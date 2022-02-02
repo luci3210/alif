@@ -26,7 +26,7 @@ h4 {
     margin-top: 3rem;
 }
 hr { display: block; height: 1px;
-    border: 1; border-top: 1px solid #b90f22;
+    border-top: 2px solid #ccc;
     margin: 1em 0; padding: 0; 
 }
 .center-block {
@@ -52,6 +52,15 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.benefits-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding:25px 25px 0; */
+    border-radius:10% 0 0 0; 
+    border: 1px solid #fff;
+}
+
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
@@ -67,6 +76,11 @@ input[type=number] {
     }
     .m-second-page {
         margin-top: 60px;
+    }
+
+    .benefits-img {
+        padding:0px 0px 0px; 
+        border-radius:0px 0px 0px 0px;
     }
   }
 /* 
@@ -219,42 +233,45 @@ input[type=number] {
 
                 </div>
 
-                <div class="form-row mt-2">
+                <div class="form-row mt-4">
                     <button type="submit" class="btn btn-primary btn-block">Isumite</button>
                 </div>
 
 
 
-                
-				
 			</form> 
 
-            <hr class="hr-mrg">
 
 
-			<h3 class="text-center mt-4">
-				Member Benefits
-			</h3>
 
-			<ol class="list">
-				<li class="list-item">
-					✓ Dialysis Financial Assistance. 
-				</li>
-				<li class="list-item">
-					✓ Libreng student allowance at scholarship.
-				</li>
-				<li class="list-item">
-					✓ Libreng Puhunan para sa mga Negosyo.
-				</li>
-				<li class="list-item">
-					✓ Tulong sa Trabaho at Kabuhayan.
-				</li>
-				<li class="list-item">
-					✓ Libreng T-Shirt at Relief Goods.
-				</li>
-			</ol> 
+<hr class="hr-mrg">
 
-            <hr class="hr-mrg">
+        </div>
+    </div>
+</div>
+
+
+
+
+<div style="background-color: #CE1126;">
+<img src="{{ url('/images/other/memberbenefits-a.jpg')}}" class="benefits-img">
+<br>
+</div>
+
+
+
+<div class="container">
+<div class="row">
+        <div class="col-md-12">
+
+
+ <hr class="hr-mrg">
+
+
+
+
+
+
 
 			<h4 class="text-center mt-4">
 				Miyembro na? Hanapin ang ID No.
@@ -265,11 +282,11 @@ input[type=number] {
 
                     <div class="form-group">
                         <label class="form-label">ID Number</label>
-                        <input type="text" class="form-control " name="search" value="{{ old('search') }}" placeholder="Ilagay ang ID No. upang baguhin ang impormasyon.(Hal. OO.202101222046X411)">
+                        <input type="text" class="form-control " name="search" value="{{ old('search') }}" placeholder="Ilagay ang ID No. upang baguhin ang impormasyon. (hal. OO.202101222046X411)">
                     </div>
                 
             
-			<button type="submit" class="btn btn-primary btn-block">Hanapin</button>
+			<button type="submit" class="btn btn-primary btn-block mt-3">Hanapin</button>
         </form>
 
 
