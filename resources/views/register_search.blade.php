@@ -44,6 +44,10 @@ hr { display: block; height: 1px;
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+.benefits-img {
+    padding:25px 25px 0; 
+    border-radius:10% 0 0 0; 
+}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -66,6 +70,10 @@ input[type=number] {
     }
     .m-second-page {
         margin-top: 60px;
+    }
+    .benefits-img {
+        padding:0px 0px 0px; 
+        border-radius:0px 0px 0px 0px;
     }
   }
 /* 
@@ -227,32 +235,28 @@ input[type=number] {
 				
 			</form> 
 
-            <hr class="hr-mrg">
+<hr class="hr-mrg">
+
+        </div>
+    </div>
+</div>
 
 
-			<h3 class="text-center mt-4">
-				Member Benefits
-			</h3>
 
-			<ol class="list">
-                <li class="list-item">
-                    ✓ Dialysis Financial Assistance. 
-                </li>
-                <li class="list-item">
-                    ✓ Libreng student allowance at scholarship.
-                </li>
-                <li class="list-item">
-                    ✓ Libreng Puhunan para sa mga Negosyo.
-                </li>
-                <li class="list-item">
-                    ✓ Tulong sa Trabaho at Kabuhayan.
-                </li>
-                <li class="list-item">
-                    ✓ Libreng T-Shirt at Relief Goods.
-                </li>
-            </ol> 
 
-            <hr class="hr-mrg">
+<div style="background-color: #fff;">
+<img src="{{ url('/images/other/memberbenefits.jpg')}}" class="benefits-img">
+<br>
+</div>
+
+
+
+<div class="container">
+<div class="row">
+        <div class="col-md-12">
+
+
+ <hr class="hr-mrg">
 
 			<h4 class="text-center mt-4">
 				Miyembro na? Hanapin ang ID No.
