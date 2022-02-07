@@ -29,6 +29,55 @@
   
   <!-- Styles -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <style>
+
+  .container-footer {
+    margin-top: 40px;
+    height: 230px;
+    background-color:#02285c;
+  }
+  .row-footer {
+    margin-top: 20px;
+  }
+  .container-footer h4 {
+    font-size: 1.1rem;
+  }
+  .container-footer p {
+    font-size: .8rem;
+    color: #e2e0e0;
+  }
+  .container-footer .icn {
+    color: #e2e0e0;
+    padding-left: .4rem;
+  }
+  .p-address {
+    color: #e2e0e0;
+    font-size: .8rem;
+    margin-left: 14px;
+    margin-top: -35px;
+  }
+
+  .p-contact{
+    color: #e2e0e0;
+    font-size: .8rem;
+    /*margin-left: 19px;*/
+    margin-top: -50px;
+  }
+  .v-contact {
+    color: #e2e0e0;
+    font-size: .8rem;
+    margin-left: 19px;
+    margin-top: -36px;
+  }
+
+  .btn-primary {
+    background-color: #34527c ;
+  }
+  .visually-hidden {
+    font-size: .8rem;
+  }
+  </style>
+  
 
   @yield('extra-css')
 
