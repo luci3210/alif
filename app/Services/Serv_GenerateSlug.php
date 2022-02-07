@@ -12,4 +12,9 @@ Class Serv_GenerateSlug {
         return Str::random(2).'.'.date('YmdHis').Str::random(2);
     }
 
+    public function randomInt() {
+
+        return date('YmdHis').Str::random(3);
+    }
+
 }

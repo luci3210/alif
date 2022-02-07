@@ -26,7 +26,7 @@ h4 {
     margin-top: 3rem;
 }
 hr { display: block; height: 1px;
-    border: 1; border-top: 1px solid #b90f22;
+    border-top: 2px solid #ccc;
     margin: 1em 0; padding: 0; 
 }
 .center-block {
@@ -44,10 +44,6 @@ hr { display: block; height: 1px;
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
-.benefits-img {
-    padding:25px 25px 0; 
-    border-radius:10% 0 0 0; 
-}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -56,10 +52,20 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.benefits-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding:25px 25px 0; */
+    border-radius:10px 10px 10px 10px;
+    border: 1px solid #fff;
+}
+
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*="col-"] {
@@ -71,10 +77,17 @@ input[type=number] {
     .m-second-page {
         margin-top: 60px;
     }
+
     .benefits-img {
         padding:0px 0px 0px; 
         border-radius:0px 0px 0px 0px;
     }
+
+    .container-footer {
+    margin-top: 40px;
+    height: 355px;
+    background-color:#02285c;
+  }
   }
 /* 
   .container {
@@ -235,20 +248,18 @@ input[type=number] {
 				
 			</form> 
 
+
 <hr class="hr-mrg">
 
-        </div>
-    </div>
+</div>
+</div>
 </div>
 
 
-
-
-<div style="background-color: #fff;">
-<img src="{{ url('/images/other/memberbenefits.jpg')}}" class="benefits-img">
+<div style="background-color: #CE1126;margin-top: 25px;">
+<img src="{{ url('/images/other/memberbenefits-a.jpg')}}" class="benefits-img">
 <br>
 </div>
-
 
 
 <div class="container">
@@ -257,6 +268,9 @@ input[type=number] {
 
 
  <hr class="hr-mrg">
+
+
+
 
 			<h4 class="text-center mt-4">
 				Miyembro na? Hanapin ang ID No.
@@ -275,23 +289,68 @@ input[type=number] {
         </form>
 
 
- <footer class="footer">
+        </div>
+    </div>
+</div>
+
+    <div class="row container-footer">
+        <div class="col-md-12">
+
+            <div class="container" >
+                 <div class="row row-footer">
+    <div class="col-sm">
+        <h4>About ALIF</h4>
+        <p>
+            Ang ALIF Partylist ay isang organisasyong naglalayong maging representante at boses ng mga Indiginong Pilipino na nangangailangan ng tulong <b>medikal, edukasyon, at hanapbuhay.</b>
+        </p>
+    </div>
+
+    <div class="col-sm">
+        <h4>Contact ALIF</h4>
+        <p>
+            <i class="fa fa-map-marker" aria-hidden="true"></i> 
+                <div class="p-address">3F Lysa Queen Bulling KN37 Mac Arthur Highway San Pablo, Malolos City, Bulacan, Philippines</div>
+                <br><br>
+        </p>
+        <p class="p-contact">
+            <i class="fa fa-envelope" aria-hidden="true"></i> 
+                <div class="v-contact">alifpartylistph@gmail.com</div>
+        </p>
+    </div>
+    <div class="col-sm">
+        
+        <a href="https://www.facebook.com/alifpartylistph/">
+            <i class="icn fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/alifpartylistph/">
+            <i class="icn fa fa-instagram fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="https://twitter.com/alifpartylistph/">
+            <i class="icn fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@alifpartylistph" style="margin-left:7px;color: white;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+            </svg>
+        </a>
 
 
+    </div>
+  </div>
+
+
+
+        <footer class="footer">
 
     {{-- <div class="col-md-12"> --}}
         <div class="row">
-            <div class="col-md-6">
-                <p style="color: #670813">© Alif Partylist 2022</p>      
-            </div>
-            <div class="col-md-6">
-                <p></p>
+            <div class="col-md-12">
+                <p style="color: #fff">© Alif Partylist 2022</p>      
             </div>
         </div>
     {{-- </div> --}}
 
-      </footer>
-
+        </footer>
 		</div>
 	</div>
 </div>

@@ -72,3 +72,28 @@ Route::group(['middleware' => ['role:admin'], 'prefix'=>'alif-admin/manage-regis
 
 
 });
+
+Route::group(['middleware' => ['role:admin'], 'prefix'=>'alif-admin/manage-leader'], function () {
+
+    // Route::get('/location/cities/{id}','ManageLeaderController@city')->name('admin.city');
+    // Route::get('/location/barangay/{id}','ManageLeaderController@barangay')->name('admin.barangay');
+
+    Route::get('/index', 'Admin\ManageLeaderController@index')->name('manage-leader.index');
+    Route::get('/create', 'Admin\ManageLeaderController@create')->name('manage-leader.create');
+    Route::post('/store', 'Admin\ManageLeaderController@store')->name('manage-leader.store');
+
+
+});
+
+Route::group(['middleware' => ['role:admin'], 'prefix'=>'alif-admin/manage-voters'], function () {
+
+    // Route::get('/location/cities/{id}','ManageLeaderController@city')->name('admin.city');
+    // Route::get('/location/barangay/{id}','ManageLeaderController@barangay')->name('admin.barangay');
+
+    Route::get('/index', 'Admin\ManageVotersController@index')->name('manage-voters.index');
+    Route::get('/create', 'Admin\ManageVotersController@create')->name('manage-voters.create');
+    Route::post('/store', 'Admin\ManageVotersController@store')->name('manage-voters.store');
+
+
+});
+

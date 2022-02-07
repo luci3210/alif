@@ -24,9 +24,8 @@
                                     <th>No.</th>
                                     <th>Name</th>
                                     <th>Mobile</th>
-                                    <th>Household</th>
                                     <th>Barangay</th>
-                                    <th>Id-No.</th>
+                                    <th>Average Target.</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,11 +33,10 @@
                                 @foreach($data as $row)
                                 <tr>
                                     <td class="text-center">{{ ++ $loop->index }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->mobile_no }}</td>
-                                    <td class="text-center">{{ $row->household_no }}</td>
+                                    <td>{{ $row->ldr_name }}</td>
+                                    <td>{{ $row->ldr_contact }}</td>
                                     <td>{{ $row->barangay_description }}</td>
-                                    <td>{{ $row->idno }}</td>
+                                    <td>{{ $row->ldr_target_no }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-warning btn-sm disabled">Edit</a>
                                     </td>
@@ -48,7 +46,7 @@
                         </table>
                         
                     </div>
-                    <div class="float-left" style="margin-left:-133px;margin-top: 5px;">{{ $data->links() }}</div>
+                    <div class="float-left">{{ $data->links() }}</div>
                 </div>
             </div>
         </div>

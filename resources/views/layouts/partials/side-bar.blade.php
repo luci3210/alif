@@ -32,9 +32,23 @@
           <li {{Route::is('manage-registered.index')? 'class=active':''}}>
             <a href="{{route('manage-registered.index')}}">
             <i class="nc-icon nc-money-coins"></i>
-                <p>Registered</p>
+                <p>Members List</p>
             </a>
-     </li>
+          </li>
+
+          <li {{Route::is('manage-leader.index') || Route::is('manage-leader.create')? 'class=active':''}}>
+            <a href="{{route('manage-leader.index')}}">
+            <i class="nc-icon nc-money-coins"></i>
+                <p>Manage learders</p>
+            </a>
+          </li>
+
+          <li {{Route::is('manage-voters.index')||Route::is('manage-voters.create')? 'class=active':''}}>
+            <a href="{{route('manage-voters.index')}}">
+            <i class="nc-icon nc-money-coins"></i>
+                <p>Number of voters</p>
+            </a>
+          </li>
 
 
 

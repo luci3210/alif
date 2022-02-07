@@ -31,7 +31,7 @@
             </div>
 
           </div>
-          {{-- <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
             <a href="#">
               <div class="card-body ">
@@ -59,7 +59,7 @@
               </div>
             </a>
             </div>
-          </div> --}}
+          </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
             <a href="{{ route('login-activities') }}">
@@ -115,27 +115,32 @@
             </div>
           </div>
         </div>
-        {{-- <div class="row">
+
+        <div class="row">
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header ">
-                <h5 class="card-title">Users Behavior</h5>
-                <p class="card-category">24 Hours performance</p>
+                <h5 class="card-title">Membership Chart Monitoring</h5>
               </div>
               <div class="card-body ">
                 <canvas id=chartHours width="400" height="100"></canvas>
               </div>
               <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-history"></i> Updated 3 minutes ago
+                <div class="legend">
+                  <i class="fa fa-circle text-primary"></i> Number of members
+                  <i class="fa fa-circle text-danger"></i> Target number
                 </div>
+                <hr>
+                {{-- <div class="stats">
+                  <i class="fa fa-calendar"></i> Number of emails sent
+                </div> --}}
               </div>
             </div>
           </div>
-        </div> --}}
-        {{-- <div class="row">
-          <div class="col-md-4">
+        </div> 
+
+        <div class="row">
+          <div class="col-md-12">
             <div class="card ">
               <div class="card-header ">
                 <h5 class="card-title">Email Statistics</h5>
@@ -158,7 +163,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8">
+          {{-- <div class="col-md-8">
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-title">NASDAQ: AAPL</h5>
@@ -178,8 +183,8 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div> --}}
+          </div> --}}
+        </div> 
       </div>
 @endrole
 
@@ -247,4 +252,15 @@
     </div>
   </div>
 </div>
+
+
+@section('extra-script')
+
+<script>
+  
+      var ydata = JSON.parse('{!! json_encode($barangay) !!}');
+      var zdata = JSON.parse('{!! json_encode($target_member) !!}');
+      var xdata = JSON.parse('{!! json_encode($members) !!}');
+</script>
+@endsection
 @endrole

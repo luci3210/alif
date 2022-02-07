@@ -25,7 +25,7 @@
 
 
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('dashboard/assets/demo/demo.css')}}" rel="stylesheet" />
+  {{-- <link href="{{asset('dashboard/assets/demo/demo.css')}}" rel="stylesheet" /> --}}
   
   <!-- Styles -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -41,7 +41,7 @@
   <script src="{{asset('dashboard/assets/js/core/bootstrap.min.js')}}"></script>
   <script src="{{asset('dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
   <!--  Google Maps Plugin    -->
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
   <script src="{{asset('dashboard//assets/js/plugins/chartjs.min.js')}}"></script>
   <!--  Notifications Plugin    -->
@@ -58,8 +58,24 @@
   <script src="{{asset('dashboard/assets/demo/demo.js')}}"></script>  
   <!-- Scripts -->
   <script src="{{ asset('js/main.js') }}" defer></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+
+ 
+  <div id="chart" style="height: 300px;"></div>
+    <!-- Charting library -->
+    <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
+   
+  
+   {{--  <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script> --}}
 
   <script>
+
+
     $(document).ready(function() {
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
@@ -72,8 +88,95 @@
         //responsive: true
       });
     });
-  </script>
-  @yield('extra-script')
+
+    //   const chart = new Chartisan({
+    //     el: '#chart',
+    //     url: "@chart('alif_chart')", 
+    //      hooks: new ChartisanHooks()
+    // .colors(['#ECC94B', '#4299E1'])
+    // .responsive()
+    // .beginAtZero()
+    // .legend({ position: 'top' })
+    // .title('Alif Registered Member')
+    // .datasets([{ type: 'line', fill: false }, 'bar']),
+    //   });
+
+    </script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function () {
+      
+$('#provinceid').on('change', function () {
+
+        let province_code = $(this).val();
+        
+        $('#cityid').empty();
+        $('#cityid').append(`<option value="" disabled selected>Searching . . .</option>`);
+        $.ajax( {
+           type: 'GET',
+           url: '/alif/location/cities/' + province_code,
+           
+            success: function (response) {
+            var response = JSON.parse(response);
+            console.log(response);   
+            
+            $('#cityid').empty();
+      
+            $('#cityid').append(`<option value="" disabled selected>-Select City/Munisipalidad-</option>`);
+            response.forEach(element => {
+            $('#cityid').append(`<option value="${element['city_municipality_code']}">${element['city_municipality_description']}</option>`);
+          });
+      
+      }
+  });
+});
+
+
+$('#cityid').on('change', function () {
+
+let city_municipality_code = $(this).val();
+
+$('#brgyid').empty();
+$('#brgyid').append(`<option value="" disabled selected>Searching . . .</option>`);
+$.ajax( {
+   type: 'GET',
+   url: '/alif/location/barangay/' + city_municipality_code,
+   
+    success: function (response) {
+    var response = JSON.parse(response);
+    console.log(response);   
+    
+    $('#brgyid').empty();
+
+    $('#brgyid').append(`<option value="" disabled selected>-Select Barangay-</option>`);
+    response.forEach(element => {
+    $('#brgyid').append(`<option value="${element['barangay_code']}">${element['barangay_description']}</option>`);
+  });
+
+}
+});
+});
+
+
+$('[id^=cpno]').keypress(validateNumber);
+
+});
+
+function validateNumber(event) {
+    var key = window.event ? event.keyCode : event.which;
+    if (event.keyCode === 8 || event.keyCode === 46) {
+        return true;
+    } else if ( key < 48 || key > 57 ) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+</script>
+@yield('extra-script')
 </body>
 
 </html>
