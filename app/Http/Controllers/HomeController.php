@@ -31,11 +31,12 @@ class HomeController extends Controller
     public function index(Registered $monitoring)
     {
 
+        ##################################################
+        ################ members #########################
+        ##################################################
+        
         $data = $monitoring->getNomberOfMemberAndTarget();
         
-        // $byDate = $monitoring->getNomberOfMemberOnDate();
-
-
         // $data = ModelRegistration::select('reg_id','created_at')->get()->groupBy(function($data) {
         //     return Carbon::parse($data->created_at)->format('M');
         // });
@@ -50,7 +51,21 @@ class HomeController extends Controller
             $members[] = $values->members;
         }
 
+        ##################################################
+        ##################### voters #####################
+        ##################################################
 
-        return view('home',compact('data','barangay','target_member','members'));
+        $datavoters = $monitoring->getVotersMonitoring();
+
+        $voter_barangay = [];
+        $voter = [];
+
+        foreach($datavoters as $values) {
+            $voter_barangay[] = $values->barangay_description;
+            $voter[] = $values->vtr_numbers;
+        }
+
+
+        return view('home',compact('data','barangay','target_member','members','voter_barangay','voter'));
     }
 }

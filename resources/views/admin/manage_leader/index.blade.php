@@ -14,7 +14,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="">
-                    <h3>Registered <a class="float-right" href="{{ route('manage-registered.export') }}">Download</a></h3>
+                    <h3>Member Leader</h3>
+                    <a href="{{ route('manage-leader.create') }}" class="btn btn-success btn-sm">Add New</a>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

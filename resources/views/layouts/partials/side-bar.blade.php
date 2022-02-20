@@ -5,12 +5,12 @@
       <div class="logo">
         <a href="#" class="simple-text logo-mini">
           <div class="logo-image-small">
-          <img src="{{ url('/storage/profile-pic',Auth::user()->avatar == '' ? '1586777833.jpg' : Auth::user()->avatar )}}" alt="{{Auth::user()->name}}"/>
+          {{-- <img src="{{ url('/storage/profile-pic',Auth::user()->avatar == '' ? '1586777833.jpg' : Auth::user()->avatar )}}" alt="{{Auth::user()->name}}"/> --}}
           </div>
         </a>
-        <a href="#" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal" style="padding-bottom:22px;">
           {{ Auth::user()->name }}<br>
-          {{Auth::user()->email}}
+          
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->
@@ -28,11 +28,17 @@
           @role('admin')
 
       
+          <li {{Route::is('chart.index')? 'class=active':''}}>
+            <a href="{{route('chart.generate')}}" target="_blank">
+            <i class="nc-icon nc-money-coins"></i>
+                <p>Chart</p>
+            </a>
+          </li>
 
           <li {{Route::is('manage-registered.index')? 'class=active':''}}>
             <a href="{{route('manage-registered.index')}}">
             <i class="nc-icon nc-money-coins"></i>
-                <p>Members List</p>
+                <p>Membership Export</p>
             </a>
           </li>
 

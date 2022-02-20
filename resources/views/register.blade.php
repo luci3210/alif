@@ -412,7 +412,7 @@ $('#cityid').on('change', function () {
 
 let city_municipality_code = $(this).val();
 
-$('#brgyid').empty();
+$('#brgyid').empty();   
 $('#brgyid').append(`<option value="" disabled selected>Searching . . .</option>`);
 $.ajax( {
    type: 'GET',

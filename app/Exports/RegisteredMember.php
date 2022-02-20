@@ -40,6 +40,7 @@ class RegisteredMember implements FromView
                     'philippine_provinces.province_description',
                     'philippine_cities.city_municipality_description',
                     'philippine_barangays.barangay_description',
+                    'registration.created_at',
                 )->get();
         }
 

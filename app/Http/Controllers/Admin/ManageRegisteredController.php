@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\RegisteredMember;
 use Maatwebsite\Excel\Facades\Excel;
-
+use App\Imports\MembershipImport;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -28,7 +28,16 @@ class ManageRegisteredController extends Controller
 
     public function export() {
 
-        return Excel::download(new RegisteredMember, 'users.xlsx');
+        return Excel::download(new RegisteredMember, 'members.xlsx');
+    
+    }
+    public function import(Request $request) {
+
+        $file = $request->file('file');
+
+        Excel::import(new MembershipImport,$file);
+        
+        return back()->with('success', 'All good!');
     
     }
 
