@@ -14,7 +14,20 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="">
-                    <h3>Registered <a class="float-right" href="{{ route('manage-registered.export') }}">Download</a></h3>
+                    <h3>membership</h3>
+                    <a class="float-left" href="{{ route('manage-registered.export') }}">Export (Download)</a><br>
+                    
+                    <form method="post" action="{{ route('manage-registered.import') }}" enctype="multipart/form-data">
+                        @csrf
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1">Import excel File</label>
+                        <input type="file" class="form-control-file" name="file">
+                      </div>
+                      <button type="submit" class="btn btn-primary">
+                                        Parse CSV
+                                    </button>
+                    </form>
+                
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

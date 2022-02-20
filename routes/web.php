@@ -21,6 +21,10 @@ Route::get('/', function () {
 })->name('welcome');
 
 
+Route::get('GraphChart','ChartController@index')->name('chart.index');
+Route::get('MembershipStatus','ChartController@generate')->name('chart.generate');
+Route::get('generateGraphs','ChartController@graph')->name('chart.graph');
+
 Route::post('alif/register','RegistrationController@create')->name('post.register');
 Route::get('alif/search-id-no','RegistrationController@search')->name('post.search');
 Route::post('alif/update','RegistrationController@update')->name('post.update');
@@ -65,10 +69,11 @@ Route::group(['middleware' => ['role:admin'], 'prefix'=>'tourismo.admin/manage-p
 });
 
 
-Route::group(['middleware' => ['role:admin'], 'prefix'=>'alif-admin/manage-registered'], function () {
+Route::group(['middleware' => ['role:admin'], 'prefix'=>'alif-admin/manage-membership'], function () {
 
     Route::get('/index', 'Admin\ManageRegisteredController@index')->name('manage-registered.index');
-    Route::get('/export', 'Admin\ManageRegisteredController@export')->name('manage-registered.export');
+    Route::get('/members-export', 'Admin\ManageRegisteredController@export')->name('manage-registered.export');
+    Route::post('/members-import', 'Admin\ManageRegisteredController@import')->name('manage-registered.import');
 
 
 });
