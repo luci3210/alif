@@ -9,7 +9,7 @@ Class Serv_GenerateSlug {
 
     public function registrationSlug() {
 
-        return Str::random(2).'.'.date('YmdHis').Str::random(2);
+        return rand(0,9999999999);
     }
 
     public function randomInt() {

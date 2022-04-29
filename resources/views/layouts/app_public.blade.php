@@ -31,10 +31,19 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   <style>
 
+  .alif-address {
+    font-size: 14px;
+    color: #000000;
+    font-weight: bold;
+  }
+  .alif-holine {
+    font-size: 12px;
+    color: #0038a9;
+    font-weight: bold;
+  }
   .container-footer {
-    margin-top: 40px;
     height: 230px;
-    background-color:#02285c;
+    background-color:#fff;
   }
   .row-footer {
     margin-top: 20px;
@@ -42,12 +51,12 @@
   .container-footer h4 {
     font-size: 1.1rem;
   }
-  .container-footer p {
+  .container-footer  {
     font-size: .8rem;
-    color: #e2e0e0;
+    color: #e2e0e0;*/
   }
   .container-footer .icn {
-    color: #e2e0e0;
+    color: #0038a9;
     padding-left: .4rem;
   }
   .p-address {
@@ -71,10 +80,52 @@
   }
 
   .btn-primary {
-    background-color: #34527c ;
+    background-color: #fdd116 ;
+    color: #000;
   }
+  
+  .btn-primary:hover {
+    background-color: #ba9701 !important;
+    color: #1a1a1a !important;
+  }
+
   .visually-hidden {
     font-size: .8rem;
+  }
+  .br-btm {
+    border-bottom: solid 15px #fff !important;
+  }
+  .frm-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: #fdd116;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+  .alif-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .alif-about{
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .alert.alert-danger {
+    margin-top: 25px;
+  }
+  .alert.alert-success {
+
+      background-color: #fcd116 !important;
+      color: #0038a9 !important;
+  }
+   .alert.alert-success h3 {
+
+      color: #0038a9;
+  }
+  .close {
+    color: #000 !important;
   }
   </style>
   
@@ -83,7 +134,7 @@
 
 </head>
 
-<body class="" style="background-color:#CE1126;">
+<body class="" style="background-color:#0038a9;">
 
 
 @yield('content')  

@@ -22,12 +22,29 @@ class ChartController extends Controller
         $overAllNewmember = $monitoring->CountAllNewMember();
         $countdays = $monitoring->CountDays();
         $overAll = $monitoring->CountAllMember();
+        $encoded = $monitoring->CountEncoded();
         $topProvinces = $monitoring->topProvinces();
         $topCityMunisipality = $monitoring->topCityMunisipality();
         $topBrgy = $monitoring->topBrgy();
+        $countNE = $monitoring->CountNewEncoded();
+        $countNL = $monitoring->CountNewOnline();
 
 
-        return view('admin.chart.index',compact('overAllNewmember','overAll','countdays','topBrgy','topCityMunisipality','topProvinces'));
+        $GPBrgy = [];
+        $GPmembers = [];
+        $GPtarget = [];
+
+        foreach($topBrgy as $Brgy) {
+
+            $GPBrgy[] = $Brgy->barangay_description;
+            $GPtarget[] = $Brgy->ldr_target_no;
+            $GPmembers[] = $Brgy->members;
+        }
+
+
+
+        return view('admin.chart.index',compact('overAllNewmember','overAll','countdays','topBrgy','topCityMunisipality','topProvinces','encoded','countNE','countNL',
+                'GPBrgy','GPmembers','GPtarget'));
         
     }
 
