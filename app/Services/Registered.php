@@ -34,6 +34,7 @@ Class Registered {
             
             })
             ->select(
+                'registration.reg_id',
                 'registration.slug_id as idno',
                 'registration.firstname as name',
                 'registration.mobile_no',
@@ -73,6 +74,15 @@ Class Registered {
             })->count();
     }
 
+    public function CountEncoded() {
+
+        return ModelRegistration::where(function ($query) {
+
+                $query->from('registration')->where('registration.manual',1);
+            
+            })->count();
+    }
+
     public function CountAllMember() {
 
         return ModelRegistration::where(function ($query) {
@@ -96,7 +106,9 @@ Class Registered {
 
         return ModelRegistration::where(function ($query) {
 
-                $query->from('registration')->whereRaw("DATE(created_at) = '" .date('Y-m-d'). "'");
+                // $query->from('registration')->whereRaw("DATE(created_at) = '" .date('Y-m-d'). "'");
+                $query->from('registration')->whereDate('created_at', now()->subDays(1));
+
             
             })->count();
     }
@@ -105,7 +117,28 @@ Class Registered {
 
         return ModelRegistration::where(function ($query) {
 
-                $query->from('registration')->whereDate('created_at', now()->subDays(5));
+                // $query->from('registration')->whereDate('created_at', now()->subDays(5));
+                $query->from('registration')->whereDate('created_at', now()->subDays(6));
+            
+            })->count();
+    }
+
+    public function CountNewEncoded() {
+
+        return ModelRegistration::where(function ($query) {
+
+                // $query->from('registration')->whereDate('created_at', now()->subDays(5));
+                $query->from('registration')->where('manual',1)->whereDate('created_at', now()->subDays(1));
+            
+            })->count();
+    }
+
+    public function CountNewOnline() {
+
+        return ModelRegistration::where(function ($query) {
+
+                // $query->from('registration')->whereDate('created_at', now()->subDays(5));
+                $query->from('registration')->where('manual',0)->whereDate('created_at', now()->subDays(1));
             
             })->count();
     }
@@ -115,6 +148,7 @@ Class Registered {
         return ModelRegistration::leftJoin('philippine_provinces','registration.province','philippine_provinces.province_code')
                                 ->leftJoin('philippine_cities','registration.city','philippine_cities.city_municipality_code')
                                 ->leftJoin('philippine_barangays','registration.barangay','philippine_barangays.barangay_code')
+
                                 ->where(function ($query) {
 
                 $query->from('registration');
@@ -127,6 +161,27 @@ Class Registered {
             ->limit(15)
             ->get();
     }
+
+    public function GraphTopProvices() {
+
+        return ModelRegistration::leftJoin('philippine_provinces','registration.province','philippine_provinces.province_code')
+                                ->leftJoin('philippine_cities','registration.city','philippine_cities.city_municipality_code')
+                                ->leftJoin('philippine_barangays','registration.barangay','philippine_barangays.barangay_code')
+
+                                ->where(function ($query) {
+
+                $query->from('registration');
+            
+            })
+            ->select('philippine_provinces.province_description',DB::raw('COUNT(registration.reg_id) as members'))
+            ->groupBy('registration.province')
+            ->orderByRaw('COUNT(*) DESC')
+            
+            ->limit(15)
+            ->get();
+    }
+
+
 
     public function topCityMunisipality() {
 
@@ -152,17 +207,18 @@ Class Registered {
         return ModelRegistration::leftJoin('philippine_provinces','registration.province','philippine_provinces.province_code')
                                 ->leftJoin('philippine_cities','registration.city','philippine_cities.city_municipality_code')
                                 ->leftJoin('philippine_barangays','registration.barangay','philippine_barangays.barangay_code')
+                                ->leftJoin('leaders','leaders.ldr_barangay','registration.barangay')
                                 ->where(function ($query) {
 
                 $query->from('registration');
             
             })
-            ->select('philippine_provinces.province_description','philippine_cities.city_municipality_description','philippine_barangays.barangay_description',
+            ->select('philippine_provinces.province_description','philippine_cities.city_municipality_description','philippine_barangays.barangay_description','leaders.ldr_target_no',
                         DB::raw('COUNT(registration.reg_id) as members'))
             ->groupBy('registration.barangay')
             ->orderByRaw('COUNT(*) DESC')
             
-            ->limit(20)
+            ->limit(15)
             ->get();
     }
 

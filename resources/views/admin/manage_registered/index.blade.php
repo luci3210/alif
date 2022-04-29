@@ -51,7 +51,7 @@
                                     <td>{{ $row->mobile_no }}</td>
                                     <td class="text-center">{{ $row->household_no }}</td>
                                     <td>{{ $row->barangay_description }}</td>
-                                    <td>{{ $row->idno }}</td>
+                                    <td>ALIF-{{ str_pad($row->reg_id,7,0,STR_PAD_LEFT) }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-warning btn-sm disabled">Edit</a>
                                     </td>

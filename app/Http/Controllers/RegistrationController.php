@@ -59,7 +59,7 @@ class RegistrationController extends Controller
 
             if($update) {
 
-                $message = 'Successfully submitted, Please keep you ID-No. to update your credentials.<br><h3>ID-No. '.$update->slug_id.'</h3>';
+                $message = 'Successfully submitted, Please keep you Reference No. to update your credentials.<br><h3>Reference No. '.$update->slug_id.'</h3>';
                 return redirect()->back()->with('success',$message);
         
             } else {
@@ -88,7 +88,7 @@ class RegistrationController extends Controller
                 
                 } else {
 
-                    return redirect()->route('welcome')->with('error', "ID-No. $input not found.");
+                    return redirect()->route('welcome')->with('error', "Reference No. $input not found.");
 
                 }
                 

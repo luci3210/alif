@@ -31,12 +31,14 @@ class RegisteredMember implements FromView
                 
                 })
                 ->select(
+                    'registration.reg_id',
                     'registration.slug_id as idno',
                     'registration.firstname',
                     'registration.lastname',
                     'registration.middlename',
                     'registration.household_no',
                     'registration.mobile_no',
+                    'registration.manual',
                     'philippine_provinces.province_description',
                     'philippine_cities.city_municipality_description',
                     'philippine_barangays.barangay_description',

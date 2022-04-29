@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Services\Registered;
 use App\Services\Serv_GenerateSlug;
+use App\ModelLeader;
 
 
 
